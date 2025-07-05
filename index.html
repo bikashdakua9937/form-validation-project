@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Registration Form</title>
+</head>
+<body style="font-family: Arial; margin: 30px; background-color: #f5f5f5;">
+  <h2 style="color: #333;">Register</h2>
+  <form id="registrationForm" method="POST" action="/submit"
+        style="background: rgb(25, 255, 255); padding: 20px; border-radius: 5px; width: 300px;">
+    <label>Name:
+      <input type="text" name="name" id="name" required style="margin: 10px;">
+    </label><br>
+    <label>Email:
+      <input type="email" name="email" id="email" required style="margin: 10px;">
+    </label><br>
+    <label>Age:
+      <input type="number" name="age" id="age" required style="margin: 10px;">
+    </label><br>
+    <label>Password:
+      <input type="password" name="password" id="password" required style="margin: 10px;">
+    </label><br>
+    <button type="submit" style="margin: 10px;">Submit</button>
+  </form>
+
+  <script>
+    document.getElementById("registrationForm").onsubmit = function(event) {
+      let age = document.getElementById("age").value;
+      let password = document.getElementById("password").value;
+
+      if (age < 18) {
+        alert("You must be at least 18 years old.");
+        event.preventDefault();
+      }
+      if (password.length < 6) {
+        alert("Password must be at least 6 characters.");
+        event.preventDefault();
+      }
+    }
+  </script>
+</body>
+</html>
